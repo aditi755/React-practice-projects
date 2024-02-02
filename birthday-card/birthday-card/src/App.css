@@ -1,0 +1,17 @@
+.card{
+  width: 200px;
+  height: 100px;
+  background-color : rgb(146, 94, 94);
+  position: relative;
+  margin-top: 20px;
+}
+
+.name{
+  height: 40px;
+  width: 100px;
+  background-color: rgb(220, 220, 99);
+  position: absolute;
+  top: 22px;
+  left: 45px;
+  box-sizing: border-box;
+}

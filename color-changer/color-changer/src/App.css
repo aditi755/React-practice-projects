@@ -1,0 +1,8 @@
+.bg{
+  background-color: white;
+}
+
+.color{
+  display: flex;
+  gap: 10px;
+}
