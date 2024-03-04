@@ -78,7 +78,15 @@ function App() {
   const options = ['ID', 'NAME', 'EMAIL']
   const [users, setUsers] = useState([]);
   const [name, setName] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+const itemPerPage = 2;
 
+  const indexofLast = currentPage * itemPerPage
+  const indexofFirst = indexofLast - itemPerPage
+
+  const currentItems = users.slice(indexofFirst, indexofLast)
+  const nPages = Math.ceil(users.length / currentItems)
+  const pageNumbers = [...Array.from(nPages + 1).keys()].slice(1);
 
   const handleChange = (e) => {
     setName(e.target.value);
@@ -169,6 +177,12 @@ function App() {
       <h3>Filter BY </h3>
 
       <h3>Pagination</h3>
+      <div>
+    nPages={nPages}
+    currentPage={currentPage}
+    setCurrentPage={setCurrentPage}
+</div>
+
     </>
   );
 }
