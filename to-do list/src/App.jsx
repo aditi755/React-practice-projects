@@ -148,7 +148,16 @@ function App() {
       setInputValue("");
     }
     };
- 
+    const handleInputKeyPress = (e) => {
+      if (e.key === 'Enter') {
+        alert('User has pressed the Enter key in the input field');
+      }
+    };
+  
+    const handleButtonClick = () => {
+      alert('User has clicked the button');
+    };
+    
   useEffect(() => {
     if (editId !== null) {
       const selectedItem = list.find((item) => item.id === editId);
@@ -182,6 +191,9 @@ function App() {
           <li>No items to display</li>
         )}
       </ul>
+
+      <input type="text" onKeyDown={handleInputKeyPress} />
+      <button onClick={handleButtonClick}>Button</button>
     </>
   );
 }
