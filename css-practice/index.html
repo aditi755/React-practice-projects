@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: aqua;
+  }
+
+  .parent{
+    margin: 0 auto;
+    width: 50%;
+    background-color: red;
+    height: 400px;
+    margin-top: 50px;
+    position: relative;
+  }
+
+  .child{
+    width: 80%; /*CSS TIP:- AVOID HEIGHT WHEN U HAVE CONTENT INSIDE*/
+    background-color: blue;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  }
+
+  .parent-1{
+    margin: 0 auto;
+    width: 50%;
+    background-color: red;
+    height: 400px;
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .child-1{
+    width: 30%; /*CSS TIP:- AVOID HEIGHT WHEN U HAVE CONTENT INSIDE*/
+    background-color: blue;
+    height: 76%;
+   overflow: hidden;
+  }
+
+  .child-2{
+    width: 30%; /*CSS TIP:- AVOID HEIGHT WHEN U HAVE CONTENT INSIDE*/
+    background-color: blue;
+    height: 76%;
+  align-self:flex-end;
+  animation: shift 2s ease-in;
+  /* animation-duration: 10s; */
+  animation-iteration-count: 5;
+  }
+
+  .child-3{
+    width: 30%; /*CSS TIP:- AVOID HEIGHT WHEN U HAVE CONTENT INSIDE*/
+    background-color: blue;
+    height: 76%;
+    overflow:hidden;
+  }
+
+  .parent-2{
+    margin: 0 auto;
+    width: 100%;
+    background-color: green;
+    height: 500px; 
+    margin-top: 50px;
+    position: relative;
+  }
+
+  .child-4{
+    font-size: 2rem;
+    width: 60%;
+    /* background-color: blueviolet; */
+    position: absolute;
+    top: 30%;
+    left: 8%;
+  }
+
+  @keyframes shift{
+    0%{
+        margin: 10px;
+    }
+    50%{
+        margin: 30px;
+    }
+    100%{
+        margin: 60px;
+    }
+  }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id voluptate nemo officiis? Temporibus, reiciendis tenetur animi, atque dolores quis iste praesentium, quibusdam ratione iusto voluptatum. Eaque temporibus deleniti saepe consequatur.
+        </div>
+    </div>
+
+    <div class="parent-1">
+        <div class="child-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim maxime ea voluptatum est voluptatibus incidunt facere sit exercitationem nihil, ducimus quo magnam vero dolor, dolorem a sed reiciendis vel iure?m</div>
+        <div class="child-2">child-2</div>
+        <div class="child-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam cum eaque, voluptates mollitia veniam rerum aspernatur, repellat maxime autem et esse exercitationem dolor explicabo similique. Sequi delectus recusandae sed fuga?</div>
+    </div>
+
+    <div class="parent-2">
+   <div class="child-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Qui molestiae et vero illum eos asperiores minus, culpa porro, nemo molestias minima? Reiciendis dignissimos consequuntur iste sapiente, explicabo beatae voluptatum quidem.</div>
+    </div>
+</body>
+</html>
