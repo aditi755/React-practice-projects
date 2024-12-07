@@ -2,7 +2,7 @@ import React from 'react'
 import Square from './Square'
 import {useState} from 'react'
 const Board= () => {
-  const [state, setState] = useState(Array(9).fill(null))
+  const [state, setState] = useState(Array(9).fill(null))  //to keep track we have arrays made up and useRef sometimes
   const [isXTurn, setIsXTurn] = useState(true)
   console.log(state)
 

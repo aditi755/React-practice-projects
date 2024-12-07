@@ -1,5 +1,5 @@
 
- const data =  {
+const data = {
   questions: [
       {
         "id": 1,

@@ -12,6 +12,11 @@
     background-color: aqua;
   }
 
+.parent-4{
+  min-width: 10vh;
+  background-color: blue;
+
+}
   .parent{
     margin: 0 auto;
     width: 50%;
@@ -19,7 +24,13 @@
     height: 400px;
     margin-top: 50px;
     position: relative;
+/* from css glow library */
+    -webkit-box-shadow:0px 0px 75px 47px rgba(46,91,255,0.71);
+-moz-box-shadow: 0px 0px 75px 47px rgba(46,91,255,0.71);
+box-shadow: 0px 0px 75px 47px rgba(46,91,255,0.71);
+
   }
+  
 
   .child{
     width: 80%; /*CSS TIP:- AVOID HEIGHT WHEN U HAVE CONTENT INSIDE*/
@@ -34,13 +45,19 @@
   .parent-1{
     margin: 0 auto;
     width: 50%;
-    background-color: red;
+    /* background-color: red; */
     height: 400px;
     margin-top: 50px;
     display: flex;
     gap: 20px;
     justify-content: space-around;
     align-items: center;
+    background: rgba(130, 24, 24, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7px );
+    -webkit-backdrop-filter: blur( 7px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
   }
 
   .child-1{
@@ -48,16 +65,25 @@
     background-color: blue;
     height: 76%;
    overflow: hidden;
-  }
+   animation: flip-diagonal-1-bl 2s ;
+};
 
   .child-2{
     width: 30%; /*CSS TIP:- AVOID HEIGHT WHEN U HAVE CONTENT INSIDE*/
     background-color: blue;
     height: 76%;
   align-self:flex-end;
-  animation: shift 2s ease-in;
+  /* animation: shift 2s ease-in;
   /* animation-duration: 10s; */
-  animation-iteration-count: 5;
+  /* animation-iteration-count: 5; */
+  box-shadow:
+  2.8px 2.8px 2.2px rgba(0, 0, 0, 0.079),
+  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.113),
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.14),
+  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.167),
+  41.8px 41.8px 33.4px rgba(0, 0, 0, 0.201),
+  100px 100px 80px rgba(0, 0, 0, 0.28)
+;
   }
 
   .child-3{
@@ -74,6 +100,7 @@
     height: 500px; 
     margin-top: 50px;
     position: relative;
+    clip-path: polygon(0 0,100% 0,100% 90%,0 66%)
   }
 
   .child-4{
@@ -84,6 +111,51 @@
     top: 30%;
     left: 8%;
   }
+
+  .parent-3{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo{
+    margin-left: 8%;
+  }
+
+  .nav{
+    display: flex;
+    justify-content: space-around;
+    gap: 70px;
+  }
+
+  .tracking-in-expand-fwd{-webkit-animation:tracking-in-expand-fwd .8s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-expand-fwd .8s cubic-bezier(.215,.61,.355,1.000) both}
+
+  .bn3637 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  backface-visibility: hidden;
+  border: 0.01rem solid transparent;
+  border-radius: 3rem;
+  margin-left: 120px;
+}
+
+.bn37 {
+  border-color: transparent;
+  background-color: #fff;
+  color: #000;
+  transition: transform 0.2s cubic-bezier(0.235, 0, 0.05, 0.95);
+}
+  
+.bn37:hover {
+  transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
+}
 
   @keyframes shift{
     0%{
@@ -97,6 +169,35 @@
     }
   }
 
+  @-webkit-keyframes flip-diagonal-1-bl {
+  0% {
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+            transform: rotate3d(1, 1, 0, 0deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(1, 1, 0, -180deg);
+            transform: rotate3d(1, 1, 0, -180deg);
+  }
+}
+@keyframes flip-diagonal-1-bl {
+  0% {
+    -webkit-transform: rotate3d(1, 1, 0, 0deg);
+            transform: rotate3d(1, 1, 0, 0deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(1, 1, 0, -180deg);
+            transform: rotate3d(1, 1, 0, -180deg);
+  }
+}
+
+@-webkit-keyframes tracking-in-expand-fwd{0%{letter-spacing:-.5em;-webkit-transform:translateZ(-700px);transform:translateZ(-700px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes tracking-in-expand-fwd{0%{letter-spacing:-.5em;-webkit-transform:translateZ(-700px);transform:translateZ(-700px);opacity:0}40%{opacity:.6}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}
+}
+
+.tracking-in-expand-fwd{
+  font-size: 57px;
+  margin-left: 110px;
+}
+
     </style>
 </head>
 <body>
@@ -104,6 +205,11 @@
         <div class="child">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Id voluptate nemo officiis? Temporibus, reiciendis tenetur animi, atque dolores quis iste praesentium, quibusdam ratione iusto voluptatum. Eaque temporibus deleniti saepe consequatur.
         </div>
+
+        <div class='tracking-in-expand-fwd'>ZOCER</div>
+
+        <a href="/" class="bn3637 bn37">Button</a>
+
     </div>
 
     <div class="parent-1">
@@ -114,6 +220,21 @@
 
     <div class="parent-2">
    <div class="child-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Qui molestiae et vero illum eos asperiores minus, culpa porro, nemo molestias minima? Reiciendis dignissimos consequuntur iste sapiente, explicabo beatae voluptatum quidem.</div>
+    </div>
+
+    <div class="parent-3">
+      <div class="logo">Logo</div>
+
+      <div class="nav">
+        <div class="home">Home</div>
+        <div class="about">About</div>
+        <div class="contact">Contact</div>
+        <div class="project">Project</div>
+      </div>
+    </div>
+
+    <div class="parent-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum pariatur sunt dolorum distinctio id doloremque quisquam eius dolor laudantium veritatis, ab in cum odio, quidem aperiam. Atque consequuntur nihil non. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae nam at quibusdam corrupti ipsum esse delectus similique quidem. Officiis nostrum exercitationem fugit dolor harum labore, suscipit in nesciunt totam dolores!
     </div>
 </body>
 </html>

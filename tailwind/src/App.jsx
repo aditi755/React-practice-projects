@@ -1,43 +1,62 @@
 
-import './App.css'
+import React, { useState } from 'react';
 
+export default function App(props) {
+  const [searchTerm, setSearchTerm] = useState('');
 
-const items = [
-  {
-    item: 'Tree',
-    id: 1, 
-  },
-  {
-    item: 'Pen',
-    id: 2
-  },
-  {
-    item: 'Pencil',
-    id: 3
-  },
-]
+  const calls = [
+    { name: "Jamie", numOfCalls: 7 },
+    { name: "Anna", numOfCalls: 2 },
+    { name: "Sam", numOfCalls: 3 },
+    { name: "Tony", numOfCalls: 8 },
+    { name: "Jamie", numOfCalls: 7 },
+    { name: "Anna", numOfCalls: 1 },
+    { name: "Sam", numOfCalls: 16 },
+    { name: "Tony", numOfCalls: 1 },
+    { name: "James", numOfCalls: 1 },
+  ];
 
-function App() {
+  const singleCalls = calls.reduce((callsByName, item) => {
+    const currentName = item.name;
+    if (Object.prototype.hasOwnProperty.call(callsByName, currentName)) {
+      callsByName[currentName] += item.numOfCalls;
+    } else {
+      callsByName[currentName] = item.numOfCalls;
+    }
+    return callsByName;
+  }, {});
+
+  const sortedArray = [];
+  for (const name in singleCalls) {
+    sortedArray.push({ name, numOfCalls: singleCalls[name] });
+  }
+
+  sortedArray.sort((a, b) => b.numOfCalls - a.numOfCalls);
+// This means that filteredArray will be re-evaluated every time the component re-renders, which will happen whenever the state (searchTerm) changes.
+  const filteredArray = sortedArray.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
-    <div className="bg-emerald-900  h-screen w-screen ">
-    <div className="w-3/6 h-20 bg-emerald-500 flex flex-row justify-center ml-40">
-    <div className="flex text-2xl justify-center text-emerald-950 font-bold mt-5 font-momo">Hello Doogos!</div>
+    <div>
+      <div>List</div>
+      <input
+        type="text"
+        placeholder="Search by name"
+        value={searchTerm}
+        onChange={handleChange}
+      />
+      <ul>
+        {filteredArray.map((item, index) => (
+          <li key={index}>
+            {item.name}: {item.numOfCalls}
+          </li>
+        ))}
+      </ul>
     </div>
-
-    <div className="grid grid-rows-4 grid-flow-col gap-10 mt-28">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    </div>
-
-    {items.map((item) => (
-        <div key={item.id}>{item.item}</div>
-      ))}
-    </div>
-  )
+  );
 }
-
-export default App
